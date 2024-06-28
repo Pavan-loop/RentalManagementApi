@@ -8,4 +8,5 @@ public interface TenantService {
     boolean deleteTenant(Long id);
     int getCount();
     void deletePTenant(Long id);
+    boolean updateStatus(Long id);
 }

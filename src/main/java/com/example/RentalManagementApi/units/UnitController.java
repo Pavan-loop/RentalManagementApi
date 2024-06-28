@@ -79,4 +79,9 @@ public class UnitController {
         List<Status> status = unitService.getStatus(id);
         return new ResponseEntity<>(status, HttpStatus.OK);
     }
+
+    @GetMapping("/rent-of/{id}")
+    public ResponseEntity<String> getRentAmount(@PathVariable Long id){
+        return new ResponseEntity<>(unitService.getRentAmount(id), HttpStatus.OK);
+    }
 }

@@ -8,6 +8,7 @@ import com.example.RentalManagementApi.units.UnitService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TenantServiceImpl implements TenantService {
@@ -53,6 +54,18 @@ public class TenantServiceImpl implements TenantService {
     @Override
     public void deletePTenant(Long id) {
         tenantRepo.deletePTenant(id);
+    }
+
+    @Override
+    public boolean updateStatus(Long id) {
+        Optional<Tenant> optionalTenant = tenantRepo.findById(id);
+        if (optionalTenant.isPresent()){
+            Tenant tenant1 = optionalTenant.get();
+            tenant1.setStatus("Paid");
+            tenantRepo.save(tenant1);
+            return true;
+        }
+        return false;
     }
 
 }

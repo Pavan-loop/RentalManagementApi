@@ -11,4 +11,5 @@ public interface UnitService {
     List<Unit> findUnitByPropertyId(Long id);
     boolean deleteAll(Long propertyId);
     List<Status> getStatus(Long propertyId);
+    String getRentAmount(Long id);
 }

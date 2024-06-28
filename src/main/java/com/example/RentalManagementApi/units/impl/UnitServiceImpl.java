@@ -90,4 +90,9 @@ public class UnitServiceImpl implements UnitService {
     public List<Status> getStatus(Long propertyId) {
         return unitRepo.getStatus(propertyId);
     }
+
+    @Override
+    public String getRentAmount(Long id) {
+        return unitRepo.getRentAmount(id);
+    }
 }

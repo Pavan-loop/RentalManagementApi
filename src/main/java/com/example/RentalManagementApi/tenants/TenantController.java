@@ -53,4 +53,13 @@ public class TenantController {
         tenantService.deletePTenant(id);
         return new ResponseEntity<>("Deleted", HttpStatus.OK);
     }
+
+    @PutMapping("/update-status/{id}")
+    public ResponseEntity<String> updateStatus(@PathVariable Long id){
+        boolean isUpdated = tenantService.updateStatus(id);
+        if (isUpdated)
+            return new ResponseEntity<>("Updated", HttpStatus.OK);
+        else
+            return new ResponseEntity<>("Problem Updating Status", HttpStatus.NOT_ACCEPTABLE);
+    }
 }

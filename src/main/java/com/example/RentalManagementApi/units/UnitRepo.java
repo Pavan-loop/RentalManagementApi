@@ -30,4 +30,10 @@ public interface UnitRepo extends JpaRepository<Unit,Long> {
     )
     List<Status> getStatus(@Param("id") Long id);
 
+    @Query(
+            value = "SELECT amount FROM unit INNER JOIN tenant ON unit.id = tenant.unit_id where tenant.id = :id",
+            nativeQuery = true
+    )
+    String getRentAmount(@Param("id") Long id);
+
 }
